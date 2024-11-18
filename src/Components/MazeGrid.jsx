@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "../App.css";
-import "../output.css";
 
 export default function MazeGrid({ width = 20, height = 20 }) {
     const [found, setFound] = useState(false);

@@ -5,7 +5,6 @@ import { useState } from 'react'
 import MazeGrid from "./Components/MazeGrid.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
       <main>

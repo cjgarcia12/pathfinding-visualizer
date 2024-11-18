@@ -3,11 +3,12 @@ import { useState } from 'react'
 // import viteLogo from '/vite.svg'
 // import './App.css'
 import MazeGrid from "./Components/MazeGrid.jsx";
+import './output.css';
 
 function App() {
 
   return (
-      <main>
+      <main className='container'>
         <MazeGrid />
       </main>
   )

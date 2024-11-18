@@ -30,7 +30,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
     // [1, 0] --- '1,0'
     function bfs(startNode) {
         if (found !== true) {
-            const sound = playAudio('src/assets/search-sounds.mp3');
+            const sound = playAudio('public/search-sounds.mp3');
             sound.play();
             let queue = [startNode];
             let visited = new Set(`${startNode[0]},${startNode[1]}`);
@@ -82,7 +82,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
                         if (maze[ny][nx] === "path" || maze[ny][nx] === "end") {
                             if (visitCell([nx, ny])) {
                                 sound.pause();
-                                playAudio('src/assets/found-node.mp3').play();
+                                playAudio('public/found-node.mp3').play();
                                 setFound(true);
                                 return true;
                             }
@@ -103,7 +103,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
 
     function dfs(startNode) {
         if (found !== true) {
-            const sound = playAudio('src/assets/search-sounds.mp3');
+            const sound = playAudio('public/search-sounds.mp3');
             sound.play();
             let stack = [startNode];
             let visited = new Set(`${startNode[0]},${startNode[1]}`);
@@ -123,7 +123,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
                 if (maze[y][x] === "end") {
                     console.log("path found!");
                     sound.pause();
-                    playAudio('src/assets/found-node.mp3').play();
+                    playAudio('public/found-node.mp3').play();
                     setFound(true);
                     return true;
                 }
@@ -224,7 +224,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
 
     function refreshMaze() {
         setFound(false);
-        playAudio('src/assets/refresh-maze.mp3').play();
+        playAudio('public/refresh-maze.mp3').play();
         timeoutIds.forEach(clearTimeout);
         setTimeoutIds([]);
         generateMaze(20, 20);

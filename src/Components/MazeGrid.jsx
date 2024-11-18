@@ -30,7 +30,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
     // [1, 0] --- '1,0'
     function bfs(startNode) {
         if (found !== true) {
-            const sound = playAudio('assets/search-sounds.mp3');
+            const sound = playAudio('search-sounds.mp3');
             sound.play();
             let queue = [startNode];
             let visited = new Set(`${startNode[0]},${startNode[1]}`);
@@ -82,7 +82,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
                         if (maze[ny][nx] === "path" || maze[ny][nx] === "end") {
                             if (visitCell([nx, ny])) {
                                 sound.pause();
-                                playAudio('assets/found-node.mp3').play();
+                                playAudio('found-node.mp3').play();
                                 setFound(true);
                                 return true;
                             }
@@ -103,7 +103,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
 
     function dfs(startNode) {
         if (found !== true) {
-            const sound = playAudio('assets/search-sounds.mp3');
+            const sound = playAudio('search-sounds.mp3');
             sound.play();
             let stack = [startNode];
             let visited = new Set(`${startNode[0]},${startNode[1]}`);
@@ -123,7 +123,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
                 if (maze[y][x] === "end") {
                     console.log("path found!");
                     sound.pause();
-                    playAudio('assets/found-node.mp3').play();
+                    playAudio('found-node.mp3').play();
                     setFound(true);
                     return true;
                 }
@@ -224,7 +224,7 @@ export default function MazeGrid({ width = 20, height = 20 }) {
 
     function refreshMaze() {
         setFound(false);
-        playAudio('assets/refresh-maze.mp3').play();
+        playAudio('refresh-maze.mp3').play();
         timeoutIds.forEach(clearTimeout);
         setTimeoutIds([]);
         generateMaze(20, 20);
